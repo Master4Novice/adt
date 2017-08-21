@@ -103,15 +103,32 @@ public class ArrayOperations implements LinearArray{
 			for(int j=0;j<N-1;j++){
 				this.array[j] = array[j];
 			}
-            
+
 		}else{
 			System.out.printf("\nPosition %d is more then array length %d \n",pos,N);
 		}
-		
+
 	}
 	public void delete(String[] array, int N, int pos) {
-		
-		
-	}
 
+
+	}
+	public int linearSearch(int[] array, int N, int item, int loc) {
+		for(int i = 1; i<= N; i++){
+			if(array[i]==item){
+				loc = i;
+				return loc;
+			}
+		}
+		return loc;		
+	}
+	public int linearSearch(String[] array, int N, String item, int loc) {
+		for(int i = 1; i<= N; i++){
+			if(array[i]==item){
+				loc = i;
+				return loc;
+			}
+		}
+		return loc;		
+	}
 }

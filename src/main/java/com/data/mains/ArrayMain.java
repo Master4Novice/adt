@@ -15,9 +15,10 @@ public class ArrayMain {
 		//insert();
 		//System.out.println("Array after insertion !!!");
 		//ao.traverse(ao.array,0,ao.array.length-1);
-		delete();
-		System.out.println("Array after deletion !!!");
-		ao.traverse(ao.array,0,ao.array.length-1);
+		//delete();
+		//System.out.println("Array after deletion !!!");
+		//ao.traverse(ao.array,0,ao.array.length-1);
+		linearSearch();
 	}
 	 
 	public static void insert(){
@@ -50,6 +51,25 @@ public class ArrayMain {
 		case 2 : System.out.printf("\nPosition to delete (Position should be <= array size):-> ");
 		         int pos = sc.nextInt();
 	             ao.delete(ao.array,ao.array.length,pos);		
+			     break;
+		default : System.out.println("Wrong Choice !!");break;
+		}
+		
+	}
+	
+	public static void linearSearch(){
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
+		switch(choice){
+		case 1 : 		
+	             break;
+		case 2 : System.out.printf("\nElement to search ( Linear Search ):-> ");
+		         int item = sc.nextInt();
+	             if(ao.linearSearch(ao.array,ao.array.length,item,0)==0){
+	            	 System.out.println("Element Not Found !!");
+	             }else{
+	            	 System.out.printf("\nElement Found at -> %d\n",(ao.linearSearch(ao.array,ao.array.length,item,0)+1));
+	             }
 			     break;
 		default : System.out.println("Wrong Choice !!");break;
 		}

@@ -45,4 +45,20 @@ public interface LinearArray {
      * @param pos
      */
     public void delete(String[] array, int N ,int pos);
+    /**
+     * @param array - int array.
+     * @param N
+     * @param item
+     * @param loc
+     * @return
+     */
+    public int linearSearch(int[] array, int N,int item ,int loc);
+    /**
+     * @param array - String array.
+     * @param N
+     * @param item
+     * @param loc
+     * @return
+     */
+    public int linearSearch(String[] array, int N,String item ,int loc);
 }
