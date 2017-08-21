@@ -77,4 +77,19 @@ public interface LinearArray {
      * @return
      */
     public int binarySearch(String[] array, int N,String item ,int loc);
+    
+    /**
+     * @param arrayOne
+     * @param arrayTwo
+     * @param nOne
+     * @param nTwo
+     */
+    public void merge(int[] arrayOne,int[] arrayTwo,int nOne, int nTwo);
+    /**
+     * @param arrayOne
+     * @param arrayTwo
+     * @param nOne
+     * @param nTwo
+     */
+    public void merge(String[] arrayOne,String[] arrayTwo,int nOne, int nTwo);
 }

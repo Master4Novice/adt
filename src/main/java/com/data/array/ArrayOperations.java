@@ -6,7 +6,9 @@ public class ArrayOperations implements LinearArray{
 
 	public int[] array;
 	public String[] arrayString;
-
+	public ArrayOperations(){
+		
+	}
 	public ArrayOperations(int choice,boolean isSorted){
 		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
@@ -154,5 +156,36 @@ public class ArrayOperations implements LinearArray{
 	}
 	public int binarySearch(String[] array, int N, String item, int loc) {
 		return 0;
+	}
+	public void merge(int[] arrayOne, int[] arrayTwo, int nOne, int nTwo) {
+		int[] arrayThree = new int[nOne+nTwo];
+		int i = 0, j = 0, k = 0;
+		while(i <= nOne-1 && j <= nTwo-1){
+			if(arrayOne[i] < arrayTwo[j]){
+				arrayThree[k] = arrayOne[i];
+				i++;
+			}
+			else{
+				arrayThree[k] = arrayTwo[j];
+				j++;
+			}
+			k++;
+		}
+		while(i <= nOne - 1){
+			arrayThree[k] = arrayOne[i];
+			k++;i++;
+		}
+		while(j <= nTwo - 1){
+			arrayThree[k] = arrayTwo[j];
+			k++;j++;
+		}
+		this.array = new int[arrayThree.length];
+		for(int l = 0 ; l<this.array.length ; l++){
+			this.array[l] = arrayThree[l];
+		}
+	}
+	public void merge(String[] arrayOne, String[] arrayTwo, int nOne, int nTwo) {
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -11,8 +11,8 @@ public class ArrayMain {
 	 public static void main(String[] args) {
 		choice = 2;
 		//ao = new ArrayOperations(choice,false);
-		ao = new ArrayOperations(choice,true);
-		ao.traverse(ao.array,0,ao.array.length-1);
+		//ao = new ArrayOperations(choice,true);
+		//ao.traverse(ao.array,0,ao.array.length-1);
 		//insert();
 		//System.out.println("Array after insertion !!!");
 		//ao.traverse(ao.array,0,ao.array.length-1);
@@ -20,7 +20,8 @@ public class ArrayMain {
 		//System.out.println("Array after deletion !!!");
 		//ao.traverse(ao.array,0,ao.array.length-1);
 		//linearSearch();
-		binarySearch();
+		//binarySearch();
+		merge();
 	}
 	 
 	public static void insert(){
@@ -91,6 +92,26 @@ public class ArrayMain {
 	             }else{
 	            	 System.out.printf("\nElement Found at -> %d\n",(ao.binarySearch(ao.array,ao.array.length,item,0)+1));
 	             }
+			     break;
+		default : System.out.println("Wrong Choice !!");break;
+		}
+		
+	}
+	
+	public static void merge(){
+		switch(choice){
+		case 1 : 		
+	             break;
+		case 2 : System.out.println("Enter Array One Details !!!");
+			     ArrayOperations aoOne = new ArrayOperations(choice,true);
+		         aoOne.traverse(aoOne.array,0,aoOne.array.length-1);
+		         System.out.println("\nEnter Array Two Details !!!");
+			     ArrayOperations aoTwo = new ArrayOperations(choice,true);
+		         aoTwo.traverse(aoTwo.array,0,aoTwo.array.length-1);
+		         ao = new ArrayOperations();
+		         ao.merge(aoOne.array,aoTwo.array, aoOne.array.length, aoTwo.array.length);
+		         System.out.println("\nArray after merging !!!");
+		         ao.traverse(ao.array,0,ao.array.length-1);
 			     break;
 		default : System.out.println("Wrong Choice !!");break;
 		}
