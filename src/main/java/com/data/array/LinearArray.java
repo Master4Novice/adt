@@ -61,4 +61,20 @@ public interface LinearArray {
      * @return
      */
     public int linearSearch(String[] array, int N,String item ,int loc);
+    /**
+     * @param array - int array.
+     * @param N
+     * @param item
+     * @param loc
+     * @return
+     */
+    public int binarySearch(int[] array, int N,int item ,int loc);
+    /**
+     * @param array - String array.
+     * @param N
+     * @param item
+     * @param loc
+     * @return
+     */
+    public int binarySearch(String[] array, int N,String item ,int loc);
 }

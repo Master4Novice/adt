@@ -10,7 +10,8 @@ public class ArrayMain {
 	private static int choice ;
 	 public static void main(String[] args) {
 		choice = 2;
-		ao = new ArrayOperations(choice);
+		//ao = new ArrayOperations(choice,false);
+		ao = new ArrayOperations(choice,true);
 		ao.traverse(ao.array,0,ao.array.length-1);
 		//insert();
 		//System.out.println("Array after insertion !!!");
@@ -18,7 +19,8 @@ public class ArrayMain {
 		//delete();
 		//System.out.println("Array after deletion !!!");
 		//ao.traverse(ao.array,0,ao.array.length-1);
-		linearSearch();
+		//linearSearch();
+		binarySearch();
 	}
 	 
 	public static void insert(){
@@ -69,6 +71,25 @@ public class ArrayMain {
 	            	 System.out.println("Element Not Found !!");
 	             }else{
 	            	 System.out.printf("\nElement Found at -> %d\n",(ao.linearSearch(ao.array,ao.array.length,item,0)+1));
+	             }
+			     break;
+		default : System.out.println("Wrong Choice !!");break;
+		}
+		
+	}
+	
+	public static void binarySearch(){
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
+		switch(choice){
+		case 1 : 		
+	             break;
+		case 2 : System.out.printf("\nElement to search ( Binary Search ):-> ");
+		         int item = sc.nextInt();
+	             if(ao.binarySearch(ao.array,ao.array.length,item,-1)==-1){
+	            	 System.out.println("Element Not Found !!");
+	             }else{
+	            	 System.out.printf("\nElement Found at -> %d\n",(ao.binarySearch(ao.array,ao.array.length,item,0)+1));
 	             }
 			     break;
 		default : System.out.println("Wrong Choice !!");break;

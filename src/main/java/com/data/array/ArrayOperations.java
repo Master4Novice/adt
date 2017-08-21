@@ -7,7 +7,7 @@ public class ArrayOperations implements LinearArray{
 	public int[] array;
 	public String[] arrayString;
 
-	public ArrayOperations(int choice){
+	public ArrayOperations(int choice,boolean isSorted){
 		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		System.out.printf("Size of array:->");
@@ -19,7 +19,11 @@ public class ArrayOperations implements LinearArray{
 		{   
 			arrayString[k] = sc.next();
 		}break;
-		case 2: System.out.printf("\nEnter Integer Array Elements \n\n");
+		case 2: if(isSorted){
+			System.out.printf("\nEnter Integer Array Elements (In ASC order only) \n\n");
+		}else{
+			System.out.printf("\nEnter Integer Array Elements \n\n");
+		}
 		array = new int[N];
 		for(int k = 0 ; k < N ; k++) 
 		{   
@@ -130,5 +134,25 @@ public class ArrayOperations implements LinearArray{
 			}
 		}
 		return loc;		
+	}
+	public int binarySearch(int[] array, int N, int item, int loc) {
+		int low = 1, high = N, mid = 0;
+		while(low <= high){
+			mid = (low+high)/2;
+			if(array[mid-1] == item){
+				loc = mid-1;
+				return loc;
+			}
+			else if(item > array[mid-1]){
+				low = mid + 1;
+			}
+			else{
+				high = mid - 1;
+			}
+		}
+		return loc;
+	}
+	public int binarySearch(String[] array, int N, String item, int loc) {
+		return 0;
 	}
 }
