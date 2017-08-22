@@ -9,7 +9,8 @@ public class SortMain {
 	public static void main(String[] args) {
          so = new SortingOperations();
          so.array = UtilityDS.arrayInput();
-         so.selectionSort(so.array);
+         //so.selectionSort(so.array);
+         so.bubbleSort(so.array);
 	}
 
 }

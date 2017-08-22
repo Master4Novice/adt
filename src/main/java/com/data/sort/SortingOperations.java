@@ -35,4 +35,28 @@ public class SortingOperations implements Sorting{
 		System.out.printf("\nSorted Array -> \n");
 		UtilityDS.display(array);
 	}
+	public void bubbleSort(int[] array) {
+		int N = array.length;
+		boolean swap = true;
+		int i = 0, temp = 0, counter = 1;
+		while(i < N && swap){
+			swap = false;
+			for(int j = 0 ; j < N -1 ; j++){
+				if(array[j] > array[j+1]){
+					System.out.printf("\n---------------- %d Swapping ---------------\n",counter++);
+					System.out.printf("\nBefore swapping\n");
+					UtilityDS.display(array);
+					temp = array[j];
+					array[j] = array[j+1];
+					array[j+1] = temp;
+					swap = true;
+					System.out.printf("\nAfter swapping\n");
+					UtilityDS.display(array);
+				}
+			}
+		 i++;	
+		}
+		System.out.printf("\nSorted Array -> \n");
+		UtilityDS.display(array);
+	}
 }
