@@ -1,39 +1,29 @@
 package com.data.array;
 
-import java.util.Scanner;
+import com.data.util.*;
 
 public class ArrayOperations implements LinearArray{
 
 	public int[] array;
 	public String[] arrayString;
+
 	public ArrayOperations(){
-		
+
 	}
+
 	public ArrayOperations(int choice,boolean isSorted){
-		@SuppressWarnings("resource")
-		Scanner sc = new Scanner(System.in);
-		System.out.printf("Size of array:->");
-		int N = sc.nextInt();
 		switch(choice){
-		case 1: System.out.printf("\nEnter String Array Elements \n\n");
-		arrayString = new String[N];
-		for(int k = 0 ; k < N ; k++) 
-		{   
-			arrayString[k] = sc.next();
-		}break;
+		case 1: break;
 		case 2: if(isSorted){
-			System.out.printf("\nEnter Integer Array Elements (In ASC order only) \n\n");
+			array = UtilityDS.arrayInputSorted();
 		}else{
-			System.out.printf("\nEnter Integer Array Elements \n\n");
+			array = UtilityDS.arrayInput();
 		}
-		array = new int[N];
-		for(int k = 0 ; k < N ; k++) 
-		{   
-			array[k] = sc.nextInt();
-		}break; 
+		break; 
 		default: System.out.println("Wrong Choice !!");break;
 		}
 	}
+
 	public boolean traverse(int[] array, int lb, int ub) {
 		int k = lb;
 		while(k<=ub){
@@ -48,18 +38,6 @@ public class ArrayOperations implements LinearArray{
 
 	}
 
-	public boolean traverse(String[] array, int lb, int ub) {
-		int k = lb;
-		while(k<=ub){
-			System.out.printf("Visited Element:-> &d \n",array[k]);
-			k = k+1;
-		}
-		if(k == ub){
-			return true;
-		}else{
-			return false;
-		}
-	}
 	public void insert(int[] array, int N, int item, int pos) {
 		int[] newArray = new int[N+1];
 		if(pos <= N){
@@ -70,55 +48,25 @@ public class ArrayOperations implements LinearArray{
 				newArray[k] = newArray[k-1];
 			}
 			newArray[pos-1] = item;
-			this.array = new int[N+1];
-			for(int j = 0; j< N+1 ; j++){
-				this.array[j] = newArray[j];
-			}
-
+			this.array = UtilityDS.copyArray(newArray,newArray.length,this.array);
 		}else{
 			System.out.printf("\nPosition %d is more then array length %d \n",pos,N);
 		}
 
 	}
-	public void insert(String[] array, int N, String item, int pos) {
-		String[] newArray = new String[N+1];
-		if(pos <= N){
-			for(int i = 0; i< N+1 ; i++ ){
-				newArray[i] = array[i];
-			}
-			for(int k = N; k >= pos ; k--){
-				newArray[k] = newArray[k-1];
-			}
-			newArray[pos-1] = item;
-			this.arrayString = new String[N+1];
-			for(int j = 0; j< N+1 ; j++){
-				this.arrayString[j] = newArray[j];
-			}
 
-		}else{
-			System.out.printf("\nPosition %d is more then array length %d \n",pos,N);
-		}
-
-	}
 	public void delete(int[] array, int N, int pos) {
 		if(pos <= N){
 			for(int i = pos-1; i<N-1; i++){
 				array[i] = array[i+1];
 			}
-			this.array = new int[N-1]; 
-			for(int j=0;j<N-1;j++){
-				this.array[j] = array[j];
-			}
-
+			this.array = UtilityDS.copyArray(array,array.length-1,this.array);
 		}else{
 			System.out.printf("\nPosition %d is more then array length %d \n",pos,N);
 		}
 
 	}
-	public void delete(String[] array, int N, int pos) {
 
-
-	}
 	public int linearSearch(int[] array, int N, int item, int loc) {
 		for(int i = 1; i<= N; i++){
 			if(array[i]==item){
@@ -128,15 +76,7 @@ public class ArrayOperations implements LinearArray{
 		}
 		return loc;		
 	}
-	public int linearSearch(String[] array, int N, String item, int loc) {
-		for(int i = 1; i<= N; i++){
-			if(array[i]==item){
-				loc = i;
-				return loc;
-			}
-		}
-		return loc;		
-	}
+
 	public int binarySearch(int[] array, int N, int item, int loc) {
 		int low = 1, high = N, mid = 0;
 		while(low <= high){
@@ -154,9 +94,7 @@ public class ArrayOperations implements LinearArray{
 		}
 		return loc;
 	}
-	public int binarySearch(String[] array, int N, String item, int loc) {
-		return 0;
-	}
+
 	public void merge(int[] arrayOne, int[] arrayTwo, int nOne, int nTwo) {
 		int[] arrayThree = new int[nOne+nTwo];
 		int i = 0, j = 0, k = 0;
@@ -179,13 +117,7 @@ public class ArrayOperations implements LinearArray{
 			arrayThree[k] = arrayTwo[j];
 			k++;j++;
 		}
-		this.array = new int[arrayThree.length];
-		for(int l = 0 ; l<this.array.length ; l++){
-			this.array[l] = arrayThree[l];
-		}
+		this.array = UtilityDS.copyArray(arrayThree,arrayThree.length,this.array);
 	}
-	public void merge(String[] arrayOne, String[] arrayTwo, int nOne, int nTwo) {
-		// TODO Auto-generated method stub
-		
-	}
+
 }
