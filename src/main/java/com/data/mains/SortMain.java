@@ -10,7 +10,8 @@ public class SortMain {
          so = new SortingOperations();
          so.array = UtilityDS.arrayInput();
          //so.selectionSort(so.array);
-         so.bubbleSort(so.array);
+         //so.bubbleSort(so.array);
+         so.insertionSort(so.array);
 	}
 
 }

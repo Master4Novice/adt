@@ -22,14 +22,14 @@ public class SortingOperations implements Sorting{
 				}
 			}
 			if(i != pos){
-				System.out.printf("\n---------------- %d Swapping ---------------\n",counter++);
-				System.out.printf("\nBefore swapping\n");
-				UtilityDS.display(array);
+				//System.out.printf("\n---------------- %d Swapping ---------------\n",counter++);
+				//System.out.printf("\nBefore swapping\n");
+				//UtilityDS.display(array);
 				temp = array[i];
 				array[i] = array[pos];
 				array[pos] = temp;
-				System.out.printf("\nAfter swapping\n");
-				UtilityDS.display(array);
+				//System.out.printf("\nAfter swapping\n");
+				//UtilityDS.display(array);
 			}
 		}
 		System.out.printf("\nSorted Array -> \n");
@@ -43,18 +43,39 @@ public class SortingOperations implements Sorting{
 			swap = false;
 			for(int j = 0 ; j < N -1 ; j++){
 				if(array[j] > array[j+1]){
-					System.out.printf("\n---------------- %d Swapping ---------------\n",counter++);
-					System.out.printf("\nBefore swapping\n");
-					UtilityDS.display(array);
+					//System.out.printf("\n---------------- %d Swapping ---------------\n",counter++);
+					//System.out.printf("\nBefore swapping\n");
+					//UtilityDS.display(array);
 					temp = array[j];
 					array[j] = array[j+1];
 					array[j+1] = temp;
 					swap = true;
-					System.out.printf("\nAfter swapping\n");
-					UtilityDS.display(array);
+					//System.out.printf("\nAfter swapping\n");
+					//UtilityDS.display(array);
 				}
 			}
-		 i++;	
+			i++;	
+		}
+		System.out.printf("\nSorted Array -> \n");
+		UtilityDS.display(array);
+	}
+	public void insertionSort(int[] array) {
+		int N = array.length;
+		int item = 0, j = 0, counter = 1;
+		for(int i = 1; i < N ; i++){
+			item = array[i];
+			j = i - 1;
+			while(j >= 0 && array[j] > item){
+				//System.out.printf("\n---------------- %d Swapping ---------------\n",counter++);
+				//System.out.printf("\nBefore swapping\n");
+				//UtilityDS.display(array);
+
+				array[j+1] = array[j];
+				j--;
+			}
+			array[j+1] = item;
+			//System.out.printf("\nAfter swapping\n");
+			//UtilityDS.display(array);
 		}
 		System.out.printf("\nSorted Array -> \n");
 		UtilityDS.display(array);

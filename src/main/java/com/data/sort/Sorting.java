@@ -19,4 +19,12 @@ public interface Sorting {
 	 * @param array - <i>int bubble sort</i>
 	 */
 	public void bubbleSort(int[] array);
+	/**<p><b>Insertion Sort</b> - In this technique we pick up a particular value and then insert it at 
+	 * the appropriate place in the sorted sub list.Insertion sort is usually used only when n is small. 
+	 * </p>
+	 * <p><b>Complexity</b> - O(N<superscript>2</superscript>)</p>
+	 * 
+	 * @param array - <i>int insertion sort</i>
+	 */
+	public void insertionSort(int[] array);
 }
